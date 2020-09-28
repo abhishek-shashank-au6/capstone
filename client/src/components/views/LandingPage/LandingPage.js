@@ -4,9 +4,9 @@ import { Icon, Col, Card, Row } from 'antd';
 import ImageSlider from '../../utils/ImageSlider';
 import CheckBox from './Sections/CheckBox';
 import RadioBox from './Sections/RadioBox';
+import { Link } from "react-router-dom";
 import { continents, price } from './Sections/Datas';
 import SearchFeature from './Sections/SearchFeature';
-
 const { Meta } = Card;
 
 function LandingPage() {
@@ -65,15 +65,13 @@ function LandingPage() {
 
 
     const renderCards = Products.map((product, index) => {
-        console.log("product: ", product);
-
         return <Col lg={6} md={8} xs={24}>
             <Card
                 hoverable={true}
                 cover={
-                    <a href={`/product/${product._id}`} >
+                    <Link to={`/product/${product._id}`} >
                         <ImageSlider images={product.images} />
-                    </a>
+                    </Link>
                 }
             >
                 <Meta
